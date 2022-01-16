@@ -1,0 +1,5 @@
+.expense-item__date{
+  display: flex;
+  flex-direction: column;
+align-items: center;
+}
