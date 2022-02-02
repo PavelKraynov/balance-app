@@ -15,7 +15,6 @@ function NewExpense(props) {
       id: Math.random().toString(),
     };
     props.addExpenseHandler(expenseData);
-    // setVisibleButton(!visibleButton);
   };
   return (
     <div className="new-expense">

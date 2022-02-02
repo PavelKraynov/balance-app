@@ -10,7 +10,7 @@ function ExpenseForm(props) {
 
   const titleChangeHandler = (e) => {
     setInputForm((prevState) => {
-      return { ...prevState, enteredTitle: e.target.value };
+        return { ...prevState, enteredTitle: e.target.value };
     });
   };
   const amountChangeHandler = (e) => {
@@ -25,12 +25,14 @@ function ExpenseForm(props) {
   };
   const submitHandlerForm = (e) => {
     e.preventDefault();
-    const expenseData = {
-      title: inputForm.enteredTitle,
-      amount: inputForm.enteredAmount,
-      date: new Date(inputForm.enteredDate)
-    };
-    props.onSaveExpenseData(expenseData);
+    if (inputForm.enteredTitle.trim().length > 0) {
+      const expenseData = {
+        title: inputForm.enteredTitle,
+        amount: inputForm.enteredAmount,
+        date: new Date(inputForm.enteredDate)
+      };
+      props.onSaveExpenseData(expenseData);
+    }
     setInputForm({ enteredTitle: "", enteredAmount: "", enteredDate: "" });
   };
 
@@ -49,6 +51,7 @@ function ExpenseForm(props) {
         <div className="new-expense__control">
           <label>Amount</label>
           <input
+            placeholder="$"
             type="number"
             min="0.1"
             step="0.1"
@@ -60,8 +63,8 @@ function ExpenseForm(props) {
         <div className="new-expense__control">
           <label>Date</label>
           <input
-            type="date"
-            min="2021-01-01"
+            type="date-en"
+            min="2020-01-01"
             max="2022-02-01"
             onChange={dateChangeHandler}
             value={inputForm.enteredDate}

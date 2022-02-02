@@ -14,9 +14,6 @@ function Expenses(props) {
       console.log("changeYear", changeYear);
     }
 const filteredOfDateArray = props.item.filter(expense => {
-  if (filteredYear === "All") {
-    return props.item;
-  }
  return (
         filteredYear ===
         expense.date.toLocaleString("en-RU", { year: "numeric" })
