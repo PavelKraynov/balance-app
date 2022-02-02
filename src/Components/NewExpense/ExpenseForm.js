@@ -50,8 +50,8 @@ function ExpenseForm(props) {
           <label>Amount</label>
           <input
             type="number"
-            min="0.01"
-            step="0.01"
+            min="0.1"
+            step="0.1"
             required="required"
             onChange={amountChangeHandler}
             value={inputForm.enteredAmount}
@@ -65,14 +65,15 @@ function ExpenseForm(props) {
             max="2022-02-01"
             onChange={dateChangeHandler}
             value={inputForm.enteredDate}
+            required="required"
           />
         </div>
       </div>
       <div className="new-expense__actions">
         <button type="submit">Send</button>
-      <button onClick={props.changeOnClickForm} type="button">
-        Cancel
-      </button>
+        <button onClick={props.changeOnClickForm} type="button">
+          Cancel
+        </button>
       </div>
     </form>
   );

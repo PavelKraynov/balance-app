@@ -20,11 +20,10 @@
 }
 
 .expense-item h2 {
-  color: #3a3a3a;
-  font-size: 1rem;
-  flex: 1;
+  font-size: 3rem;
+  flex: auto;
   margin: 0 1rem;
-  color: white;
+  color: rgb(247, 247, 247);
 }
 
 .expense-item__price {

@@ -1,26 +1,22 @@
-
-import { useState } from 'react/cjs/react.development';
+import { useState } from "react/cjs/react.development";
 
 import ExpenseForm from "./ExpenseForm";
 
-import './NewExpense.css'
+import "./NewExpense.css";
 
 function NewExpense(props) {
-
-  const [visibleButton, setVisibleButton] = useState(false)
-  const [toggledForm, setToggledForm] = useState(false);
-  console.log(toggledForm);
+  const [visibleButton, setVisibleButton] = useState(false);
   const changeOnClickForm = () => {
-     setToggledForm(!toggledForm);
-  }
+    setVisibleButton(!visibleButton);
+  };
   const saveExpenseDataHandler = (enteredExpenseData) => {
     const expenseData = {
       ...enteredExpenseData,
-      id: Math.random().toString()
-    }
+      id: Math.random().toString(),
+    };
     props.addExpenseHandler(expenseData);
-
-  }
+    // setVisibleButton(!visibleButton);
+  };
   return (
     <div className="new-expense">
       {!visibleButton && (
@@ -28,7 +24,7 @@ function NewExpense(props) {
           New Expense Form
         </button>
       )}
-      {toggledForm && (
+      {visibleButton && (
         <ExpenseForm
           changeOnClickForm={changeOnClickForm}
           onSaveExpenseData={saveExpenseDataHandler}
