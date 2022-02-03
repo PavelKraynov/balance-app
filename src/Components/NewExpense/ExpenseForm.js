@@ -36,6 +36,19 @@ function ExpenseForm(props) {
     setInputForm({ enteredTitle: "", enteredAmount: "", enteredDate: "" });
   };
 
+  const changeForExample = (e) => {
+    e.preventDefault()
+    setInputForm(() => {
+    return {
+      enteredTitle: "Potato",
+      enteredAmount: "60",
+      enteredDate: "2022-01-01",
+    }; })
+  }
+  const year = new Date().toLocaleString("en-RU", { year: "numeric" });
+  const month = new Date().toLocaleString("en-RU", { month: "numeric" });
+  const maxDate = `${year}-12-01`;
+  console.log(maxDate);
   return (
     <form onSubmit={submitHandlerForm}>
       <div className="new-expense__controls">
@@ -65,7 +78,7 @@ function ExpenseForm(props) {
           <input
             type="date"
             min="2020-01-01"
-            max="2022-02-01"
+            max={maxDate}
             onChange={dateChangeHandler}
             value={inputForm.enteredDate}
             required="required"
@@ -76,6 +89,14 @@ function ExpenseForm(props) {
         <button type="submit">Send</button>
         <button onClick={props.changeOnClickForm} type="button">
           Cancel
+        </button>
+
+        <button
+          style={{ color: "green" }}
+          onClick={changeForExample}
+          type="button"
+        >
+          change for example
         </button>
       </div>
     </form>
