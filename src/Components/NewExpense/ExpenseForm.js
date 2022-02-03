@@ -39,14 +39,33 @@ function ExpenseForm(props) {
   const changeForExample = (e) => {
     e.preventDefault()
     setInputForm(() => {
+      // const randomTitle = Math.random().toFixed(2) * 100;
+      const arrTitle = ['potato', 'car', 'telephone', 'milk', 'sweet', 'books', 'tv', 'internet']
+      const randomTitle = Math.floor(Math.random() * (arrTitle.length ));
+
+      const randomAmount = Math.random().toFixed(2) * 100;
+      const arrayMonth = new Array(12).fill(null).map((it, index) => index+1)
+      const randomMonth = Math.floor(Math.random() * (arrayMonth.length + 1));
+      console.log(randomMonth);
+      const truMonth = () => {
+        if (`${randomMonth}`.length < 2) {
+          if (`${randomMonth}` === '0') {
+            return `0${randomMonth +1}`;
+          }
+          return`0${randomMonth}`;
+        }
+        return `${randomMonth}`;
+      }
+      console.log('truMonth',truMonth());
     return {
-      enteredTitle: "Potato",
-      enteredAmount: "60",
-      enteredDate: "2022-01-01",
-    }; })
-  }
+      enteredTitle: `${arrTitle[randomTitle]}`,
+      enteredAmount: `${randomAmount}`,
+      enteredDate: `2021-${truMonth()}-01`,
+    };
+  }) }
+
   const year = new Date().toLocaleString("en-RU", { year: "numeric" });
-  const month = new Date().toLocaleString("en-RU", { month: "numeric" });
+  // const month = new Date().toLocaleString("en-RU", { month: "numeric" });
   const maxDate = `${year}-12-01`;
   console.log(maxDate);
   return (
