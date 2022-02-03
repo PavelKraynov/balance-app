@@ -39,11 +39,10 @@ function ExpenseForm(props) {
   const changeForExample = (e) => {
     e.preventDefault()
     setInputForm(() => {
-      // const randomTitle = Math.random().toFixed(2) * 100;
-      const arrTitle = ['potato', 'car', 'telephone', 'milk', 'sweet', 'books', 'tv', 'internet']
+      const arrTitle = ['potato', 'car', 'telephone', 'milk', 'sweet', 'books', 'tv', 'internet', 'shoes', 'i fogot what i buy=)']
       const randomTitle = Math.floor(Math.random() * (arrTitle.length ));
 
-      const randomAmount = Math.random().toFixed(2) * 100;
+      const randomAmount = Math.random().toFixed(2) * 1000;
       const arrayMonth = new Array(12).fill(null).map((it, index) => index+1)
       const randomMonth = Math.floor(Math.random() * (arrayMonth.length + 1));
       console.log(randomMonth);
