@@ -63,7 +63,7 @@ function ExpenseForm(props) {
         <div className="new-expense__control">
           <label>Date</label>
           <input
-            type="date-en"
+            type="date"
             min="2020-01-01"
             max="2022-02-01"
             onChange={dateChangeHandler}
